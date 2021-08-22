@@ -1,5 +1,6 @@
 ﻿#include "GeneralException.h"
 #include <sstream>
+#include "resource.h"
 
 GeneralException::GeneralException(int line, const char* file) noexcept
 	:

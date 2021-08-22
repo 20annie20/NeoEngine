@@ -1,5 +1,5 @@
 #include "Win.h"
-#include "Window.h"
+#include "App.h"
 #include <sstream>
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -40,24 +40,7 @@ int CALLBACK WinMain(
 	int		  nCmdShow)
 {
 	try {
-		Window wnd(800, 300, "Wassup");
-
-		MSG msg;
-		BOOL gResult;
-		while ((gResult = GetMessage(&msg, nullptr, 0, 0)) > 0)
-		{
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
-		}
-
-		if (gResult == -1)
-		{
-			return -1;
-		}
-		else
-		{
-			return msg.wParam;
-		}
+		return App().Go();
 	}
 	catch(const GeneralException& e)
 	{
